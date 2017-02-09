@@ -9,10 +9,7 @@ import com.anthony.thread.threadhttp.HttpUtil;
  */
 public class Main {
     public static void main(String[] args) {
-        testThread();
-        HttpUtil u=new HttpUtil();
-        u.setUrl("www.baidu.com");
-        u.doGet();
+        testRunnable();
     }
 
     static void testThread()
@@ -28,7 +25,7 @@ public class Main {
         Runnable r1=new TestRunnable();
         Runnable r2=new TestRunnable();
         Thread t1=new Thread(r1);
-        Thread t2=new Thread(r2);
+        Thread t2=new Thread(r1);
         System.out.println(Thread.currentThread().getName());
         t1.start();
         t2.start();

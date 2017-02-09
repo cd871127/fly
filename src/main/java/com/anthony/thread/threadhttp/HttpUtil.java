@@ -13,7 +13,7 @@ import java.io.IOException;
 /**
  * Created by CHENDONG239 on 2017-02-09.
  */
-public class HttpUtil implements Runnable {
+public class HttpUtil extends Thread {
     public void setUrl(String url) {
         if(url.indexOf("http://")==-1&&url.indexOf("https://")==-1)
             url="http://"+url;
@@ -25,7 +25,6 @@ public class HttpUtil implements Runnable {
     @Override
     public void run() {
         String res=doGet();
-        System.out.println(res);
     }
 
     public String doGet() {

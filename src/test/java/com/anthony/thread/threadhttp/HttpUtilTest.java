@@ -13,8 +13,10 @@ public class HttpUtilTest {
     {
         HttpUtil u=new HttpUtil();
         u.setUrl("www.baidu.com");
-//        u.run();
-        u.doGet();
+        u.run();
+        u.setUrl("www.hao123.com");
+        u.run();
+//        u.doGet();
     }
 
 }

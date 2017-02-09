@@ -11,22 +11,29 @@ import java.util.Map;
 public class MultiThreadHttp {
 
     private int threadCount;
-    private Map<String,Runnable> threadMap=new HashMap<>();
+    private Map<String,Thread> threadMap=new HashMap<>();
     private ArrayList<String> urlList;
 
     MultiThreadHttp(int threadCount,ArrayList<String> urlList)
     {
-        this.threadCount=threadCount;
+        if(urlList.size()<threadCount)
+            this.threadCount=urlList.size();
+        else
+            this.threadCount=threadCount;
         this.urlList=urlList;
-        for(int i=0;i!=threadCount;++i)
+
+        for(int i=0;i!=this.threadCount;++i)
         {
-            Runnable r=new HttpUtil();
-            threadMap.put("download#"+String.valueOf(i),r);
+            Thread thread=new HttpUtil();
+            threadMap.put("download#"+String.valueOf(i),thread);
         }
     }
 
     public void start()
     {
-
+        while(!urlList.isEmpty())
+        {
+            ;
+        }
     }
 }
