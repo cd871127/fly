@@ -2,6 +2,7 @@ package com.anthony;
 
 import com.anthony.thread.TestRunnable;
 import com.anthony.thread.TestThread;
+import com.anthony.thread.threadhttp.HttpUtil;
 
 /**
  * Created by CHENDONG239 on 2017-02-03.
@@ -9,6 +10,9 @@ import com.anthony.thread.TestThread;
 public class Main {
     public static void main(String[] args) {
         testThread();
+        HttpUtil u=new HttpUtil();
+        u.setUrl("www.baidu.com");
+        u.doGet();
     }
 
     static void testThread()
